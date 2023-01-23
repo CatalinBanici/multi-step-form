@@ -25,7 +25,7 @@ export default function Form(props) {
             setFormStep((currentPage) => currentPage + 1);
           }}
         >
-          Next Step
+          {formStep === 3 ? "Confirm" : "Next Step"}
         </button>
       </div>
     </div>
