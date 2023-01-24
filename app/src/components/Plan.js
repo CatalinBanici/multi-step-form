@@ -21,7 +21,7 @@ export default function Plan() {
               />
             </g>
           </svg>
-          <label for="arcade">Arcade</label>
+          <label htmlFor="arcade">Arcade</label>
           <p>9$/mo</p>
         </div>
       </div>
@@ -43,7 +43,7 @@ export default function Plan() {
               />
             </g>
           </svg>
-          <label for="advanced">Advanced</label>
+          <label htmlFor="advanced">Advanced</label>
           <p>12$/mo</p>
         </div>
       </div>
@@ -65,7 +65,7 @@ export default function Plan() {
               />
             </g>
           </svg>
-          <label for="pro">Pro</label>
+          <label htmlFor="pro">Pro</label>
           <p>15$/mo</p>
         </div>
       </div>

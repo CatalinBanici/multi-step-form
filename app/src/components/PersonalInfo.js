@@ -2,10 +2,10 @@ import React from "react";
 
 export default function PersonalInfo() {
   return (
-    <>
+    <div className="personal-info-container">
       <div className="text-input-container">
         <div className="label-container">
-          <label for="name">Name</label>
+          <label htmlFor="name">Name</label>
           <p>This field is required</p>
         </div>
         <input
@@ -18,7 +18,7 @@ export default function PersonalInfo() {
       </div>
       <div className="text-input-container">
         <div className="label-container">
-          <label for="email">Email</label>
+          <label htmlFor="email">Email</label>
           <p>This field is required</p>
         </div>
         <input
@@ -31,7 +31,7 @@ export default function PersonalInfo() {
       </div>
       <div className="text-input-container">
         <div className="label-container">
-          <label for="phone">Phone Number</label>
+          <label htmlFor="phone">Phone Number</label>
           <p>This field is required</p>
         </div>
         <input
@@ -42,6 +42,6 @@ export default function PersonalInfo() {
           required
         />
       </div>
-    </>
+    </div>
   );
 }

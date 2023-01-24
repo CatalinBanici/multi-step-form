@@ -1,4 +1,4 @@
-import Form from "./components/Form";
+import FormikContainer from "./components/FormikContainer";
 import Progress from "./components/Progress";
 import { useState } from "react";
 import PersonalInfo from "./components/PersonalInfo";
@@ -38,7 +38,7 @@ function App() {
   return (
     <main className="app-container">
       <Progress />
-      <Form
+      <FormikContainer
         formStep={formStep}
         setFormStep={setFormStep}
         formTitles={formTitles}
