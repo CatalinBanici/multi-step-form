@@ -1,21 +1,16 @@
 import React from "react";
+import FormikControl from "./FormikControl";
 
 export default function PersonalInfo() {
   return (
     <div className="personal-info-container">
-      <div className="text-input-container">
-        <div className="label-container">
-          <label htmlFor="name">Name</label>
-          <p>This field is required</p>
-        </div>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          placeholder="e.g. Stephen King"
-          required
-        />
-      </div>
+      <FormikControl
+        control="name"
+        type="text"
+        name="name"
+        label="Name"
+        placeholder="e.g. Stephen King"
+      />
       <div className="text-input-container">
         <div className="label-container">
           <label htmlFor="email">Email</label>

@@ -6,13 +6,19 @@ export default function FormikContainer(props) {
   const { formStep, setFormStep, formTitles, formSubHeadings, pageDisplay } =
     props;
 
-  const initialValues = {};
+  const initialValues = {
+    name: "",
+  };
 
-  const validationSchema = Yup.object({});
+  const validationSchema = Yup.object({
+    name: Yup.string().required("This field is required"),
+  });
 
   function onSubmit(values) {
     console.log("Submited: ", values);
   }
+
+  console.log(initialValues);
 
   return (
     <div className="form-container">
