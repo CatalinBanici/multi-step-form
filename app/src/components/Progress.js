@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function Sidebar() {
+export default function Progress() {
   return <div></div>;
 }

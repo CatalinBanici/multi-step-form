@@ -1,5 +1,5 @@
 import Form from "./components/Form";
-import Sidebar from "./components/Sidebar";
+import Progress from "./components/Progress";
 import { useState } from "react";
 import PersonalInfo from "./components/PersonalInfo";
 import Plan from "./components/Plan";
@@ -37,7 +37,7 @@ function App() {
 
   return (
     <main className="app-container">
-      <Sidebar />
+      <Progress />
       <Form
         formStep={formStep}
         setFormStep={setFormStep}
