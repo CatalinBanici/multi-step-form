@@ -8,10 +8,18 @@ export default function FormikContainer(props) {
 
   const initialValues = {
     name: "",
+    email: "",
+    phone: "",
   };
 
   const validationSchema = Yup.object({
     name: Yup.string().required("This field is required"),
+    email: Yup.string()
+      .email("Must be a valid email")
+      .required("This field is required"),
+    phone: Yup.number()
+      .typeError("Must be a number")
+      .required("This field is required"),
   });
 
   function onSubmit(values) {
