@@ -1,8 +1,11 @@
 import React from "react";
+import FormikControl from "./FormikControl";
 
-export default function Plan() {
+export default function Plan(props) {
+  const { planOptions } = props;
   return (
     <div className="plan-container">
+      <FormikControl control="radio" name="planOption" options={planOptions} />
       <div className="toggle-container">
         <button>monthly</button>
         <label className="switch">

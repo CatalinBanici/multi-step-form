@@ -5,12 +5,12 @@ import TextError from "./TextError";
 export default function RadioInput(props) {
   const { name, options, ...rest } = props;
   return (
-    <div className="radio-input-container">
+    <div className="radio-body">
       <Field name={name} {...rest}>
         {({ field }) => {
           return options.map((option) => {
             return (
-              <React.Fragment key={option.key}>
+              <div className="radio-input-container" key={option.key}>
                 <input
                   type="radio"
                   id="option.value"
@@ -21,7 +21,7 @@ export default function RadioInput(props) {
                 <div>
                   <label htmlFor={option.value}>{option.key}</label>
                 </div>
-              </React.Fragment>
+              </div>
             );
           });
         }}

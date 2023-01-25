@@ -23,24 +23,17 @@ function App() {
     "Double-check everything looks OK before confirming.",
   ];
 
-  // const pricingPlans = {
-  //   monthly: {
-  //     arcade: 9,
-  //     advanced: 12,
-  //     pro: 15,
-  //   },
-  //   yearly: {
-  //     arcade: 90,
-  //     advanced: 120,
-  //     pro: 150,
-  //   },
-  // };
+  const planOptions = [
+    { key: "Arcade", value: "Arcade-Plan" },
+    { key: "Advanced", value: "Advanced-Plan" },
+    { key: "Pro", value: "Pro-Plan" },
+  ];
 
   function pageDisplay() {
     if (formStep === 0) {
       return <PersonalInfo />;
     } else if (formStep === 1) {
-      return <Plan />;
+      return <Plan planOptions={planOptions} />;
     } else if (formStep === 2) {
       return <AddOns />;
     } else {
