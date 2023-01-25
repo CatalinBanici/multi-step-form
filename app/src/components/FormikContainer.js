@@ -10,7 +10,14 @@ export default function FormikContainer(props) {
     name: "",
     email: "",
     phone: "",
+    planOption: "",
   };
+
+  const planOptions = [
+    { key: "Arcade", value: "Arcade-Plan" },
+    { key: "Advanced", value: "Advanced-Plan" },
+    { key: "Pro", value: "Pro-Plan" },
+  ];
 
   const validationSchema = Yup.object({
     name: Yup.string().required("This field is required"),
@@ -20,6 +27,7 @@ export default function FormikContainer(props) {
     phone: Yup.number()
       .typeError("Must be a number")
       .required("This field is required"),
+    planOption: Yup.string().required("You must pick an option"),
   });
 
   function onSubmit(values) {

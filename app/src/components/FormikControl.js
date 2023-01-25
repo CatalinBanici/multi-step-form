@@ -2,6 +2,7 @@ import React from "react";
 import EmailInput from "./EmailInput";
 import NameInput from "./NameInput";
 import PhoneInput from "./PhoneInput";
+import RadioInput from "./RadioInput";
 
 export default function FormikControl(props) {
   const { control, ...rest } = props;
@@ -13,6 +14,7 @@ export default function FormikControl(props) {
     case "phone":
       return <PhoneInput {...rest} />;
     case "radio":
+      return <RadioInput {...rest} />;
     case "checkbox":
     default:
       return null;
