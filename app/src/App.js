@@ -23,6 +23,19 @@ function App() {
     "Double-check everything looks OK before confirming.",
   ];
 
+  // const pricingPlans = {
+  //   monthly: {
+  //     arcade: 9,
+  //     advanced: 12,
+  //     pro: 15,
+  //   },
+  //   yearly: {
+  //     arcade: 90,
+  //     advanced: 120,
+  //     pro: 150,
+  //   },
+  // };
+
   function pageDisplay() {
     if (formStep === 0) {
       return <PersonalInfo />;

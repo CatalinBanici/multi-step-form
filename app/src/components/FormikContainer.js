@@ -40,10 +40,11 @@ export default function FormikContainer(props) {
         onSubmit={onSubmit}
       >
         {(formik) => (
-          <Form>
+          <Form className="form-body">
             {pageDisplay()}
             <div className="form-buttons">
               <button
+                type="button"
                 disabled={formStep === 0}
                 onClick={() => {
                   setFormStep((currentPage) => currentPage - 1);
@@ -52,6 +53,7 @@ export default function FormikContainer(props) {
                 Go Back
               </button>
               <button
+                type="button"
                 onClick={() => {
                   setFormStep((currentPage) => currentPage + 1);
                 }}
@@ -59,6 +61,14 @@ export default function FormikContainer(props) {
                 {formStep === 3 ? "Confirm" : "Next Step"}
               </button>
             </div>
+            <button
+              type="submit"
+              onClick={() => {
+                onSubmit();
+              }}
+            >
+              test
+            </button>
           </Form>
         )}
       </Formik>

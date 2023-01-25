@@ -22,7 +22,7 @@ export default function Plan() {
             </g>
           </svg>
           <label htmlFor="arcade">Arcade</label>
-          <p>9$/mo</p>
+          <p>${}/mo</p>
         </div>
       </div>
       <div className="radio-input-container">
