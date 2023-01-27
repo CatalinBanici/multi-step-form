@@ -19,6 +19,7 @@ export default function RadioInput(props) {
                   checked={field.value === option.value}
                 />
                 <div>
+                  {option.icon}
                   <label htmlFor={option.value}>{option.key}</label>
                   <p>
                     ${option.price}
