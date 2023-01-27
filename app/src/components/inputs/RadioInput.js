@@ -1,6 +1,6 @@
 import React from "react";
 import { Field, ErrorMessage } from "formik";
-import TextError from "./TextError";
+import TextError from "../formik/TextError";
 
 export default function RadioInput(props) {
   const { togglePlan, name, options, ...rest } = props;

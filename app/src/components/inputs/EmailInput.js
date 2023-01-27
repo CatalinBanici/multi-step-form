@@ -1,8 +1,8 @@
 import React from "react";
 import { Field, ErrorMessage } from "formik";
-import TextError from "./TextError";
+import TextError from "../formik/TextError";
 
-export default function NameInput(props) {
+export default function EmailInput(props) {
   const { label, name, ...rest } = props;
   return (
     <div className="text-input-container">

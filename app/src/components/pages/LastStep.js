@@ -5,10 +5,10 @@ export default function LastStep() {
     <div className="last-step-container">
       <div className="chosen-plan-container">
         <div className="chosen-plan">
-          <h3>Arcade</h3>
+          {/* <h3>{options.key}</h3> */}
           <button>Change</button>
         </div>
-        <h3>9$/mo</h3>
+        {/* <h3>{option.price}</h3> */}
       </div>
 
       <hr />

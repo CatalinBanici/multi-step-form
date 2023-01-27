@@ -1,5 +1,5 @@
 import React from "react";
-import FormikControl from "./FormikControl";
+import FormikControl from "../formik/FormikControl";
 
 export default function PersonalInfo() {
   return (

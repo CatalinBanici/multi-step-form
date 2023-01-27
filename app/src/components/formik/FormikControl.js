@@ -1,8 +1,8 @@
 import React from "react";
-import EmailInput from "./EmailInput";
-import NameInput from "./NameInput";
-import PhoneInput from "./PhoneInput";
-import RadioInput from "./RadioInput";
+import EmailInput from "../inputs/EmailInput";
+import NameInput from "../inputs/NameInput";
+import PhoneInput from "../inputs/PhoneInput";
+import RadioInput from "../inputs/RadioInput";
 
 export default function FormikControl(props) {
   const { togglePlan, control, ...rest } = props;
