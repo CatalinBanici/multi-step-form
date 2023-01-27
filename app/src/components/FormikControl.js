@@ -5,7 +5,7 @@ import PhoneInput from "./PhoneInput";
 import RadioInput from "./RadioInput";
 
 export default function FormikControl(props) {
-  const { control, ...rest } = props;
+  const { togglePlan, control, ...rest } = props;
   switch (control) {
     case "name":
       return <NameInput {...rest} />;
@@ -14,7 +14,7 @@ export default function FormikControl(props) {
     case "phone":
       return <PhoneInput {...rest} />;
     case "radio":
-      return <RadioInput {...rest} />;
+      return <RadioInput togglePlan={togglePlan} {...rest} />;
     case "checkbox":
     default:
       return null;

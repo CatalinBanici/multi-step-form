@@ -23,17 +23,25 @@ function App() {
     "Double-check everything looks OK before confirming.",
   ];
 
-  const planOptions = [
-    { key: "Arcade", value: "Arcade-Plan" },
-    { key: "Advanced", value: "Advanced-Plan" },
-    { key: "Pro", value: "Pro-Plan" },
+  const planOptionsMo = [
+    { key: "Arcade", value: "Arcade-Plan-Month", price: 9 },
+    { key: "Advanced", value: "Advanced-Plan-Month", price: 12 },
+    { key: "Pro", value: "Pro-Plan-Month", price: 15 },
+  ];
+
+  const planOptionsYr = [
+    { key: "Arcade", value: "Arcade-Plan-Year", price: 90 },
+    { key: "Advanced", value: "Advanced-Plan-Year", price: 120 },
+    { key: "Pro", value: "Pro-Plan-Year", price: 150 },
   ];
 
   function pageDisplay() {
     if (formStep === 0) {
       return <PersonalInfo />;
     } else if (formStep === 1) {
-      return <Plan planOptions={planOptions} />;
+      return (
+        <Plan planOptionsMo={planOptionsMo} planOptionsYr={planOptionsYr} />
+      );
     } else if (formStep === 2) {
       return <AddOns />;
     } else {

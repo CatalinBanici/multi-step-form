@@ -3,7 +3,7 @@ import { Field, ErrorMessage } from "formik";
 import TextError from "./TextError";
 
 export default function RadioInput(props) {
-  const { name, options, ...rest } = props;
+  const { togglePlan, name, options, ...rest } = props;
   return (
     <div className="radio-body">
       <Field name={name} {...rest}>
@@ -20,6 +20,11 @@ export default function RadioInput(props) {
                 />
                 <div>
                   <label htmlFor={option.value}>{option.key}</label>
+                  <p>
+                    ${option.price}
+                    {togglePlan === "monthly" ? "/mo" : "/yr"}
+                  </p>
+                  <p>{togglePlan === "monthly" ? null : "2 months free"}</p>
                 </div>
               </div>
             );
