@@ -9,6 +9,7 @@ import Progress from "../Progress";
 
 export default function FormikContainer() {
   const [formStep, setFormStep] = useState(0);
+  const [togglePlan, setTogglePlan] = useState("monthly");
 
   function pageDisplay() {
     switch (formStep) {
@@ -16,7 +17,12 @@ export default function FormikContainer() {
         return <PersonalInfo />;
       case 1:
         return (
-          <Plan planOptionsMo={planOptionsMo} planOptionsYr={planOptionsYr} />
+          <Plan
+            planOptionsMo={planOptionsMo}
+            planOptionsYr={planOptionsYr}
+            togglePlan={togglePlan}
+            setTogglePlan={setTogglePlan}
+          />
         );
       case 2:
         return <AddOns />;

@@ -13,7 +13,7 @@ export default function RadioInput(props) {
               <div className="radio-input-container" key={option.key}>
                 <input
                   type="radio"
-                  id="option.value"
+                  id={option.value}
                   {...field}
                   value={option.value}
                   checked={field.value === option.value}

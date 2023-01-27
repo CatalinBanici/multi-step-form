@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import FormikControl from "../formik/FormikControl";
 
 export default function Plan(props) {
-  const [togglePlan, setTogglePlan] = useState("monthly");
-
-  const { planOptionsMo, planOptionsYr } = props;
+  const { planOptionsMo, planOptionsYr, togglePlan, setTogglePlan } = props;
   return (
     <div className="plan-container">
       <FormikControl
