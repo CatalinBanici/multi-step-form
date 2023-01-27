@@ -1,14 +1,15 @@
 import React from "react";
 
-export default function LastStep() {
+export default function LastStep(props) {
+  const { formik } = props;
   return (
     <div className="last-step-container">
       <div className="chosen-plan-container">
         <div className="chosen-plan">
-          {/* <h3>{options.key}</h3> */}
+          <h3>{formik.values.planOption}</h3>
           <button>Change</button>
         </div>
-        {/* <h3>{option.price}</h3> */}
+        <h3>${}/</h3>
       </div>
 
       <hr />

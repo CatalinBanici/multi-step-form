@@ -11,7 +11,7 @@ export default function FormikContainer() {
   const [formStep, setFormStep] = useState(0);
   const [togglePlan, setTogglePlan] = useState("monthly");
 
-  function pageDisplay() {
+  function pageDisplay(formik) {
     switch (formStep) {
       case 0:
         return <PersonalInfo />;
@@ -27,7 +27,7 @@ export default function FormikContainer() {
       case 2:
         return <AddOns />;
       case 3:
-        return <LastStep />;
+        return <LastStep formik={formik} />;
       default:
         return null;
     }
@@ -100,25 +100,25 @@ export default function FormikContainer() {
   );
 
   const planOptionsMo = [
-    { key: "Arcade", value: "Arcade-Plan-Month", price: 9, icon: arcadeIcon },
+    { key: "Arcade", value: "Arcade (Monthly)", price: 9, icon: arcadeIcon },
     {
       key: "Advanced",
-      value: "Advanced-Plan-Month",
+      value: "Advanced (Monthly)",
       price: 12,
       icon: advancedIcon,
     },
-    { key: "Pro", value: "Pro-Plan-Month", price: 15, icon: proIcon },
+    { key: "Pro", value: "Pro (Monthly)", price: 15, icon: proIcon },
   ];
 
   const planOptionsYr = [
-    { key: "Arcade", value: "Arcade-Plan-Year", price: 90, icon: arcadeIcon },
+    { key: "Arcade", value: "Arcade (Yearly)", price: 90, icon: arcadeIcon },
     {
       key: "Advanced",
-      value: "Advanced-Plan-Year",
+      value: "Advanced (Yearly)",
       price: 120,
       icon: advancedIcon,
     },
-    { key: "Pro", value: "Pro-Plan-Year", price: 150, icon: proIcon },
+    { key: "Pro", value: "Pro (Yearly)", price: 150, icon: proIcon },
   ];
 
   const initialValues = {
@@ -143,8 +143,6 @@ export default function FormikContainer() {
     console.log("Submited: ", values);
   }
 
-  console.log(initialValues);
-
   return (
     <>
       <Progress />
@@ -160,7 +158,8 @@ export default function FormikContainer() {
         >
           {(formik) => (
             <Form className="form-body">
-              {pageDisplay()}
+              {pageDisplay(formik)}
+              {console.log(formik.values)}
               <div className="form-buttons">
                 <button
                   type="button"
