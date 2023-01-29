@@ -3,6 +3,7 @@ import EmailInput from "../inputs/EmailInput";
 import NameInput from "../inputs/NameInput";
 import PhoneInput from "../inputs/PhoneInput";
 import RadioInput from "../inputs/RadioInput";
+import CheckboxInput from "../inputs/CheckboxInput";
 
 export default function FormikControl(props) {
   const { togglePlan, control, ...rest } = props;
@@ -16,6 +17,7 @@ export default function FormikControl(props) {
     case "radio":
       return <RadioInput togglePlan={togglePlan} {...rest} />;
     case "checkbox":
+      return <CheckboxInput togglePlan={togglePlan} {...rest} />;
     default:
       return null;
   }

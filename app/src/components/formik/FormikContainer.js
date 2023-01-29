@@ -25,7 +25,7 @@ export default function FormikContainer() {
           />
         );
       case 2:
-        return <AddOns />;
+        return <AddOns addOnOptions={addOnOptions} togglePlan={togglePlan} />;
       case 3:
         return <LastStep formik={formik} />;
       default:
@@ -121,11 +121,36 @@ export default function FormikContainer() {
     { key: "Pro", value: "Pro (Yearly)", price: 150, icon: proIcon },
   ];
 
+  const addOnOptions = [
+    {
+      key: "online-service",
+      value: "Online Service",
+      description: "Access to multiplayer games",
+      priceMo: 1,
+      priceYr: 10,
+    },
+    {
+      key: "larger-storage",
+      value: "Larger Storage",
+      description: "Extra 1TB of cloud save",
+      priceMo: 2,
+      priceYr: 20,
+    },
+    {
+      key: "customizable-profile",
+      value: "Customizable Profile",
+      description: "Custom theme on your profile",
+      priceMo: 2,
+      priceYr: 20,
+    },
+  ];
+
   const initialValues = {
     name: "",
     email: "",
     phone: "",
     planOption: "",
+    addOnOptions: [],
   };
 
   const validationSchema = Yup.object({
