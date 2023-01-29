@@ -15,14 +15,14 @@ export default function LastStep(props) {
       <hr />
 
       <div className="chosen-addons-container">
-        <div className="chosen-addon">
-          <p>Online service</p>
-          <h4>+1$/mo</h4>
-        </div>
-        <div className="chosen-addon">
-          <p>Larget storage</p>
-          <h4>+2$/mo</h4>
-        </div>
+        {formik.values.addOnOptions.map((option) => {
+          return (
+            <div key={option} className="chosen-addon">
+              <p>{option}</p>
+              <h4>{}</h4>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

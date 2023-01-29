@@ -25,9 +25,9 @@ export default function FormikContainer() {
           />
         );
       case 2:
-        return <AddOns addOnOptions={addOnOptions} togglePlan={togglePlan} />;
+        return <AddOns extraOptions={extraOptions} togglePlan={togglePlan} />;
       case 3:
-        return <LastStep formik={formik} />;
+        return <LastStep formik={formik} extraOptions={extraOptions} />;
       default:
         return null;
     }
@@ -121,7 +121,7 @@ export default function FormikContainer() {
     { key: "Pro", value: "Pro (Yearly)", price: 150, icon: proIcon },
   ];
 
-  const addOnOptions = [
+  const extraOptions = [
     {
       key: "online-service",
       value: "Online Service",
