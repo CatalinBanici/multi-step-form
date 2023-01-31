@@ -27,7 +27,15 @@ export default function FormikContainer() {
       case 2:
         return <AddOns extraOptions={extraOptions} togglePlan={togglePlan} />;
       case 3:
-        return <LastStep formik={formik} extraOptions={extraOptions} />;
+        return (
+          <LastStep
+            formik={formik}
+            togglePlan={togglePlan}
+            planOptionsMo={planOptionsMo}
+            planOptionsYr={planOptionsYr}
+            extraOptions={extraOptions}
+          />
+        );
       default:
         return null;
     }
@@ -184,7 +192,7 @@ export default function FormikContainer() {
           {(formik) => (
             <Form className="form-body">
               {pageDisplay(formik)}
-              {console.log(formik.values)}
+
               <div className="form-buttons">
                 <button
                   type="button"

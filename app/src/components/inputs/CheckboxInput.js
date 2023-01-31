@@ -23,7 +23,7 @@ export default function CheckboxInput(props) {
                 </div>
                 <span>
                   +${togglePlan === "monthly" ? option.priceMo : option.priceYr}
-                  /{togglePlan === "monthly" ? "mo" : "yr"}
+                  {togglePlan === "monthly" ? "/mo" : "/yr"}
                 </span>
               </div>
             );
