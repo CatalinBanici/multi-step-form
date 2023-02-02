@@ -21,17 +21,40 @@ export default function LastStep(props) {
     }
   }
 
-  function displayAddOnPrice(value) {
-    if (value === "Online Service") {
-      return togglePlan === "monthly" ? 1 : 10;
-    } else if (value === "Larger Storage") {
-      return togglePlan === "monthly" ? 2 : 20;
-    } else if (value === "Customizable Profile") {
-      return togglePlan === "monthly" ? 2 : 20;
-    } else {
-      return null;
-    }
-  }
+  // function displayAddOnPrice(value, total) {
+  //   if (value === "Online Service") {
+  //     return togglePlan === "monthly" ? 1 : 10;
+  //   } else if (value === "Larger Storage") {
+  //     return togglePlan === "monthly" ? 2 : 20;
+  //   } else if (value === "Customizable Profile") {
+  //     return togglePlan === "monthly" ? 2 : 20;
+  //   } else {
+  //     return null;
+  //   }
+
+  // }
+
+  let addons = [
+    ...formik.values.addOnOptions.map((addon) => {
+      if (addon === "Online Service")
+        return {
+          name: "Online service",
+          price: togglePlan === "monthly" ? 1 : 10,
+        };
+      if (addon === "Larger Storage")
+        return {
+          name: "Larger storage",
+          price: togglePlan === "monthly" ? 2 : 20,
+        };
+      if (addon === "Customizable Profile")
+        return {
+          name: "Customizable profile",
+          price: togglePlan === "monthly" ? 2 : 20,
+        };
+    }),
+  ];
+
+  console.log(addons);
 
   return (
     <div className="last-step-container">
@@ -50,12 +73,12 @@ export default function LastStep(props) {
         <hr />
 
         <div className="chosen-addons-container">
-          {formik.values.addOnOptions.map((value) => {
+          {addons.map((addon, i) => {
             return (
-              <div key={value} className="chosen-addon">
-                <p>{value}</p>
+              <div key={i} className="chosen-addon">
+                <p>{addon.name}</p>
                 <h4>
-                  +${displayAddOnPrice(value)}
+                  +${addon.price}
                   {togglePlan === "monthly" ? "/mo" : "/yr"}
                 </h4>
               </div>
@@ -64,8 +87,8 @@ export default function LastStep(props) {
         </div>
       </div>
       <div className="total-container">
-        {/* <p></p>
-        <h2></h2> */}
+        <p></p>
+        <h2>{}</h2>
       </div>
     </div>
   );
