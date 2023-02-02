@@ -166,10 +166,13 @@ export default function FormikContainer() {
     email: Yup.string()
       .email("Must be a valid email")
       .required("This field is required"),
-    phone: Yup.number()
-      .typeError("Must be a number")
-      .required("This field is required"),
-    // planOption: Yup.string().required("You must pick an option"),
+    phone: Yup.string()
+      .required("This field is required")
+      .matches(/([0-9])/, "Must be a phone number"),
+    plan: Yup.string().oneOf(
+      ["Arcade", "Advanced", "Pro"],
+      "Please select a plan"
+    ),
   });
 
   function onSubmit(values) {
