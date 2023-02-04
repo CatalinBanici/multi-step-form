@@ -5,11 +5,15 @@ import PersonalInfo from "../pages/PersonalInfo";
 import Plan from "../pages/Plan";
 import AddOns from "../pages/AddOns";
 import LastStep from "../pages/LastStep";
+import Complete from "../pages/Complete";
 import Progress from "../Progress";
+import { Route, Routes, useNavigate } from "react-router-dom";
 
 export default function FormikContainer() {
   const [formStep, setFormStep] = useState(0);
   const [togglePlan, setTogglePlan] = useState("monthly");
+
+  const navigate = useNavigate();
 
   function pageDisplay(formik) {
     switch (formStep) {
@@ -175,58 +179,73 @@ export default function FormikContainer() {
     ),
   });
 
-  function onSubmit(values) {
-    console.log("Submited: ", values);
+  async function onSubmit(values) {
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    console.log("Submitted the following values:", values);
+    navigate("/complete");
   }
 
   return (
     <>
       <Progress />
-      <div className="form-container">
-        <div className="form-title">
-          <h1>{formTitles[formStep]}</h1>
-          <p>{formSubHeadings[formStep]}</p>
-        </div>
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          onSubmit={onSubmit}
-        >
-          {(formik) => (
-            <Form className="form-body">
-              {pageDisplay(formik)}
-
-              <div className="form-buttons">
-                <button
-                  type="button"
-                  disabled={formStep === 0}
-                  onClick={() => {
-                    setFormStep((currentPage) => currentPage - 1);
-                  }}
-                >
-                  Go Back
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setFormStep((currentPage) => currentPage + 1);
-                  }}
-                >
-                  {formStep === 3 ? "Confirm" : "Next Step"}
-                </button>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <div className="form-container">
+              <div className="form-title">
+                <h1>{formTitles[formStep]}</h1>
+                <p>{formSubHeadings[formStep]}</p>
               </div>
-              <button
-                type="submit"
-                onClick={() => {
-                  onSubmit();
-                }}
+              <Formik
+                initialValues={initialValues}
+                validationSchema={validationSchema}
+                onSubmit={onSubmit}
               >
-                test
-              </button>
-            </Form>
-          )}
-        </Formik>
-      </div>
+                {(formik) => (
+                  <Form className="form-body">
+                    {pageDisplay(formik)}
+
+                    <div className="form-buttons">
+                      <button
+                        type="button"
+                        disabled={formStep === 0 || formik.isSubmitting}
+                        onClick={() => {
+                          setFormStep((currentPage) => currentPage - 1);
+                        }}
+                      >
+                        Go Back
+                      </button>
+                      {formStep < 3 && (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setFormStep((currentPage) => currentPage + 1);
+                          }}
+                        >
+                          Next Step
+                        </button>
+                      )}
+                      {formStep === 3 && (
+                        <button
+                          type="submit"
+                          disabled={formik.isSubmitting}
+                          onClick={() => {
+                            onSubmit();
+                          }}
+                        >
+                          {formik.isSubmitting ? "Processing" : "Confirm"}
+                        </button>
+                      )}
+                    </div>
+                  </Form>
+                )}
+              </Formik>
+            </div>
+          }
+        />
+        <Route path="/complete" element={<Complete />} />
+      </Routes>
     </>
   );
 }

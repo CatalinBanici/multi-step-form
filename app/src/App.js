@@ -1,9 +1,12 @@
 import FormikContainer from "./components/formik/FormikContainer";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
     <main className="app-container">
-      <FormikContainer />
+      <BrowserRouter>
+        <FormikContainer />
+      </BrowserRouter>
     </main>
   );
 }
