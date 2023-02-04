@@ -3,69 +3,66 @@ import React from "react";
 export default function LastStep(props) {
   const { formik, togglePlan } = props;
 
-  function displayPlanPrice(value) {
-    if (value === "Arcade (Monthly)") {
-      return 9;
-    } else if (value === "Advanced (Monthly)") {
-      return 12;
-    } else if (value === "Pro (Monthly)") {
-      return 15;
-    } else if (value === "Arcade (Yearly)") {
-      return 90;
-    } else if (value === "Advanced (Yearly)") {
-      return 120;
-    } else if (value === "Pro (Yearly)") {
-      return 150;
-    } else {
+  let displayPlan;
+
+  switch (formik.values.planOption) {
+    case "Arcade (Monthly)":
+      displayPlan = { displayValue: "Arcade (Monthly)", displayPrice: 9 };
+      break;
+    case "Advanced (Monthly)":
+      displayPlan = { displayValue: "Advanced (Monthly)", displayPrice: 12 };
+      break;
+    case "Pro (Monthly)":
+      displayPlan = { displayValue: "Pro (Monthly)", displayPrice: 15 };
+      break;
+    case "Arcade (Yearly)":
+      displayPlan = { displayValue: "Arcade (Yearly)", displayPrice: 90 };
+      break;
+    case "Advanced (Yearly)":
+      displayPlan = { displayValue: "Advanced (Yearly)", displayPrice: 120 };
+      break;
+    case "Pro (Yearly)":
+      displayPlan = { displayValue: "Pro (Yearly)", displayPrice: 150 };
+      break;
+    default:
       return null;
-    }
   }
 
-  // function displayAddOnPrice(value, total) {
-  //   if (value === "Online Service") {
-  //     return togglePlan === "monthly" ? 1 : 10;
-  //   } else if (value === "Larger Storage") {
-  //     return togglePlan === "monthly" ? 2 : 20;
-  //   } else if (value === "Customizable Profile") {
-  //     return togglePlan === "monthly" ? 2 : 20;
-  //   } else {
-  //     return null;
-  //   }
-
-  // }
-
-  let addons = [
+  let displayAddons = [
     ...formik.values.addOnOptions.map((addon) => {
       if (addon === "Online Service")
         return {
-          name: "Online service",
-          price: togglePlan === "monthly" ? 1 : 10,
+          displayValue: "Online service",
+          displayPrice: togglePlan === "monthly" ? 1 : 10,
         };
       if (addon === "Larger Storage")
         return {
-          name: "Larger storage",
-          price: togglePlan === "monthly" ? 2 : 20,
+          displayValue: "Larger storage",
+          displayPrice: togglePlan === "monthly" ? 2 : 20,
         };
       if (addon === "Customizable Profile")
         return {
-          name: "Customizable profile",
-          price: togglePlan === "monthly" ? 2 : 20,
+          displayValue: "Customizable profile",
+          displayPrice: togglePlan === "monthly" ? 2 : 20,
         };
     }),
   ];
 
-  console.log(addons);
+  let displayTotal = parseInt(displayPlan.displayPrice);
+  displayAddons.forEach((addon) => {
+    displayTotal += parseInt(addon.displayPrice);
+  });
 
   return (
     <div className="last-step-container">
       <div className="chosen-plan-addon-body">
         <div className="chosen-plan-container">
           <div className="chosen-plan">
-            <h3>{formik.values.planOption}</h3>
+            <h3>{displayPlan.displayValue}</h3>
             <button>Change</button>
           </div>
           <h3>
-            ${displayPlanPrice(formik.values.planOption)}
+            ${displayPlan.displayPrice}
             {togglePlan === "monthly" ? "/mo" : "/yr"}
           </h3>
         </div>
@@ -73,12 +70,12 @@ export default function LastStep(props) {
         <hr />
 
         <div className="chosen-addons-container">
-          {addons.map((addon, i) => {
+          {displayAddons.map((addon, i) => {
             return (
               <div key={i} className="chosen-addon">
-                <p>{addon.name}</p>
+                <p>{addon.displayValue}</p>
                 <h4>
-                  +${addon.price}
+                  +${addon.displayPrice}
                   {togglePlan === "monthly" ? "/mo" : "/yr"}
                 </h4>
               </div>
@@ -87,8 +84,13 @@ export default function LastStep(props) {
         </div>
       </div>
       <div className="total-container">
-        <p></p>
-        <h2>{}</h2>
+        <p>
+          {togglePlan === "monthly" ? "Total (per month)" : "Total (per year)"}
+        </p>
+        <h2>
+          ${displayTotal}
+          {togglePlan === "monthly" ? "/mo" : "/yr"}
+        </h2>
       </div>
     </div>
   );
