@@ -15,36 +15,6 @@ export default function FormikContainer() {
 
   const navigate = useNavigate();
 
-  function pageDisplay(formik) {
-    switch (formStep) {
-      case 0:
-        return <PersonalInfo />;
-      case 1:
-        return (
-          <Plan
-            planOptionsMo={planOptionsMo}
-            planOptionsYr={planOptionsYr}
-            togglePlan={togglePlan}
-            setTogglePlan={setTogglePlan}
-          />
-        );
-      case 2:
-        return <AddOns extraOptions={extraOptions} togglePlan={togglePlan} />;
-      case 3:
-        return (
-          <LastStep
-            formik={formik}
-            togglePlan={togglePlan}
-            planOptionsMo={planOptionsMo}
-            planOptionsYr={planOptionsYr}
-            extraOptions={extraOptions}
-          />
-        );
-      default:
-        return null;
-    }
-  }
-
   const formTitles = [
     "Personal info",
     "Select your plan",
@@ -157,6 +127,69 @@ export default function FormikContainer() {
     },
   ];
 
+  function pageDisplay(formik) {
+    switch (formStep) {
+      case 0:
+        return <PersonalInfo />;
+      case 1:
+        return (
+          <Plan
+            planOptionsMo={planOptionsMo}
+            planOptionsYr={planOptionsYr}
+            togglePlan={togglePlan}
+            setTogglePlan={setTogglePlan}
+          />
+        );
+      case 2:
+        return <AddOns extraOptions={extraOptions} togglePlan={togglePlan} />;
+      case 3:
+        return (
+          <LastStep
+            formik={formik}
+            togglePlan={togglePlan}
+            planOptionsMo={planOptionsMo}
+            planOptionsYr={planOptionsYr}
+            extraOptions={extraOptions}
+            setFormStep={setFormStep}
+          />
+        );
+      default:
+        return null;
+    }
+  }
+
+  function handleNextStep(formik) {
+    const { values, isValid, validateField, setTouched, errors } = formik;
+    if ((formStep === 0 && !values.name, !values.email, !values.phone)) {
+      validateField("name", "email", "phone");
+      setTouched({
+        name: true,
+        email: true,
+        phone: true,
+      });
+    } else if (
+      formStep === 0 &&
+      !errors.name &&
+      !errors.email &&
+      !errors.phone
+    ) {
+      setFormStep(1);
+    }
+    if (formStep === 1 && !values.planOption) {
+      setTouched({
+        planOption: true,
+      });
+    } else if (formStep === 1 && isValid) {
+      setFormStep(2);
+    }
+    if (formStep === 2) {
+      setFormStep(3);
+    }
+    if (formStep === 3) {
+      setFormStep(4);
+    }
+  }
+
   const initialValues = {
     name: "",
     email: "",
@@ -165,7 +198,7 @@ export default function FormikContainer() {
     addOnOptions: [],
   };
 
-  const validationSchema = Yup.object({
+  const validationSchema = Yup.object().shape({
     name: Yup.string().required("This field is required"),
     email: Yup.string()
       .email("Must be a valid email")
@@ -173,10 +206,16 @@ export default function FormikContainer() {
     phone: Yup.string()
       .required("This field is required")
       .matches(/([0-9])/, "Must be a phone number"),
-    plan: Yup.string().oneOf(
-      ["Arcade", "Advanced", "Pro"],
-      "Please select a plan"
-    ),
+    planOption: Yup.string()
+      .required("Please select a plan")
+      .oneOf([
+        "Arcade (Monthly)",
+        "Advanced (Monthly)",
+        "Pro (Monthly)",
+        "Arcade (Yearly)",
+        "Advanced (Yearly)",
+        "Pro (Yearly)",
+      ]),
   });
 
   async function onSubmit(values) {
@@ -220,7 +259,7 @@ export default function FormikContainer() {
                         <button
                           type="button"
                           onClick={() => {
-                            setFormStep((currentPage) => currentPage + 1);
+                            handleNextStep(formik);
                           }}
                         >
                           Next Step
@@ -229,7 +268,7 @@ export default function FormikContainer() {
                       {formStep === 3 && (
                         <button
                           type="submit"
-                          disabled={formik.isSubmitting}
+                          disabled={formik.isSubmitting && formik.isValid}
                           onClick={() => {
                             onSubmit();
                           }}

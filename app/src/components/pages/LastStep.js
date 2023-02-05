@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function LastStep(props) {
-  const { formik, togglePlan } = props;
+  const { formik, togglePlan, setFormStep } = props;
 
   let displayPlan;
 
@@ -59,7 +59,7 @@ export default function LastStep(props) {
         <div className="chosen-plan-container">
           <div className="chosen-plan">
             <h3>{displayPlan.displayValue}</h3>
-            <button>Change</button>
+            <button onClick={() => setFormStep(1)}>Change</button>
           </div>
           <h3>
             ${displayPlan.displayPrice}
