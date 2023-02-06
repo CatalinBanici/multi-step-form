@@ -4,6 +4,69 @@
   padding: 0;
 }
 
+html {
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  height: 100vh;
+  width: 1440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: row;
+  width: 1000px;
+  height: 600px;
+  border: 1px solid black;
+  padding: 15px;
+}
+
+/* ====================================================
+=============== PROGRESS COMPONENT =================
+==================================================== */
+
+.progress-container {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+}
+
+.step-container {
+  display: flex;
+}
+
+.step-number {
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+}
+
+.step-number-active {
+  padding: 10px;
+  border: 1px solid rgb(100, 100, 100);
+  background-color: #2196f3;
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+}
+
+/* ================================================
+============ PLAN COMPONENT ====================
+================================================ */
+
 /* The switch - the box around the slider */
 .switch {
   position: relative;

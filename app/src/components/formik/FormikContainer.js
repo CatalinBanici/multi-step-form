@@ -226,7 +226,7 @@ export default function FormikContainer() {
 
   return (
     <>
-      <Progress />
+      <Progress formStep={formStep} />
       <Routes>
         <Route
           path="/"
@@ -268,7 +268,7 @@ export default function FormikContainer() {
                       {formStep === 3 && (
                         <button
                           type="submit"
-                          disabled={formik.isSubmitting && formik.isValid}
+                          disabled={formik.isSubmitting}
                           onClick={() => {
                             onSubmit();
                           }}
