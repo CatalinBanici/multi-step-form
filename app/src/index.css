@@ -1,3 +1,24 @@
+@font-face {
+  font-family: "Ubuntu";
+  src: url(./assets/fonts/Ubuntu-Bold.ttf);
+  src: url(./assets/fonts/Ubuntu-Medium.ttf);
+  src: url(./assets/fonts/Ubuntu-Regular.ttf);
+}
+
+:root {
+  --MarineBlue: hsl(213, 96%, 18%);
+  --PurplishBlue: hsl(243, 100%, 62%);
+  --PastelBlue: hsl(228, 100%, 84%);
+  --LightBlue: hsl(206, 94%, 87%);
+  --StrawberryRed: hsl(354, 84%, 57%);
+
+  --CoolGray: hsl(231, 11%, 63%);
+  --LightGray: hsl(229, 24%, 87%);
+  --Magnolia: hsl(217, 100%, 97%);
+  --Alabaster: hsl(231, 100%, 99%);
+  --White: hsl(0, 0%, 100%);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -10,6 +31,7 @@ html {
 }
 
 body {
+  font-family: "Ubuntu";
   height: 100vh;
   width: 1440px;
   display: flex;
@@ -31,37 +53,64 @@ body {
 ==================================================== */
 
 .progress-container {
-  width: 25%;
+  width: 30%;
   display: flex;
   flex-direction: column;
+  background-image: url(./assets/images/bg-sidebar-desktop.svg);
+  background-repeat: no-repeat;
+  background-size: initial;
+  padding: 25px 15px;
+  text-transform: uppercase;
+  font-size: 13px;
 }
 
 .step-container {
   display: flex;
+  padding: 10px;
 }
 
 .step-number {
-  padding: 10px;
-  border: 1px solid black;
+  margin: 5px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--LightBlue);
+  color: var(--White);
   border-radius: 50%;
-  height: 35px;
-  width: 35px;
-  justify-self: center;
-  align-self: center;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .step-number-active {
-  padding: 10px;
-  border: 1px solid rgb(100, 100, 100);
-  background-color: #2196f3;
+  margin: 5px;
+  width: 30px;
+  height: 30px;
+  color: black;
+  border: 1px solid var(--LightBlue);
+  background-color: var(--LightBlue);
   border-radius: 50%;
-  height: 35px;
-  width: 35px;
-  justify-self: center;
-  align-self: center;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.step-text {
+  padding-left: 10px;
+}
+
+.step-text p {
+  padding: 2px;
+  color: var(--PastelBlue);
+}
+
+.step-text h4 {
+  padding: 2px;
+  color: var(--White);
+}
+
+/* ===================================================
+=========== PERSONAL INFO COMPONENT ===============
+=================================================== */
 
 /* ================================================
 ============ PLAN COMPONENT ====================

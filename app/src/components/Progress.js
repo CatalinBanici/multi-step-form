@@ -8,8 +8,8 @@ export default function Progress({ formStep }) {
           1
         </div>
         <div className="step-text">
-          <h3>step 1</h3>
-          <h3>your info</h3>
+          <p>step 1</p>
+          <h4>your info</h4>
         </div>
       </div>
       <div className="step-container">
@@ -17,8 +17,8 @@ export default function Progress({ formStep }) {
           2
         </div>
         <div className="step-text">
-          <h3>step 2</h3>
-          <h3>select plan</h3>
+          <p>step 2</p>
+          <h4>select plan</h4>
         </div>
       </div>
       <div className="step-container">
@@ -26,8 +26,8 @@ export default function Progress({ formStep }) {
           3
         </div>
         <div className="step-text">
-          <h3>step 3</h3>
-          <h3>add-ons</h3>
+          <p>step 3</p>
+          <h4>add-ons</h4>
         </div>
       </div>
       <div className="step-container">
@@ -35,8 +35,8 @@ export default function Progress({ formStep }) {
           4
         </div>
         <div className="step-text">
-          <h3>step 4</h3>
-          <h3>summary</h3>
+          <p>step 4</p>
+          <h4>summary</h4>
         </div>
       </div>
     </div>
