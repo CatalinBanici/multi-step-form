@@ -290,7 +290,10 @@ body {
   opacity: 0;
 }
 
-.radio-input-container:focus-within {
+.radio-input-container-selected {
+  height: 160px;
+  margin: 10px 0;
+  width: 140px;
   background-color: var(--Magnolia);
   border: double 1px transparent;
   border-radius: 10px;
@@ -298,6 +301,15 @@ body {
     linear-gradient(to right, var(--PurplishBlue), var(--MarineBlue));
   background-origin: border-box;
   background-clip: padding-box, border-box;
+}
+
+.radio-input-container-selected input {
+  position: absolute;
+  height: 160px;
+  width: 140px;
+  cursor: pointer;
+  z-index: 5;
+  opacity: 0;
 }
 
 .icon-text-container {

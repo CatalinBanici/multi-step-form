@@ -11,7 +11,14 @@ export default function RadioInput(props) {
           {({ field }) => {
             return options.map((option) => {
               return (
-                <div className="radio-input-container" key={option.key}>
+                <div
+                  className={
+                    field.value === option.value
+                      ? "radio-input-container-selected"
+                      : "radio-input-container"
+                  }
+                  key={option.key}
+                >
                   <input
                     type="radio"
                     id={option.value}
