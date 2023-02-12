@@ -12,7 +12,16 @@ export default function Plan(props) {
         options={togglePlan === "yearly" ? planOptionsYr : planOptionsMo}
       />
       <div className="toggle-container">
-        <button type="buton" onClick={() => setTogglePlan("monthly")}>
+        <button
+          className="monthly-btn"
+          style={
+            togglePlan === "monthly"
+              ? { color: "hsl(213, 96%, 18%)" }
+              : { color: "hsl(231, 11%, 63%)" }
+          }
+          type="button"
+          onClick={() => setTogglePlan("monthly")}
+        >
           Monthly
         </button>
 
@@ -30,7 +39,16 @@ export default function Plan(props) {
           <span className="slider round"></span>
         </label>
 
-        <button type="button" onClick={() => setTogglePlan("yearly")}>
+        <button
+          className="yearly-btn"
+          style={
+            togglePlan === "yearly"
+              ? { color: "hsl(213, 96%, 18%)" }
+              : { color: "hsl(231, 11%, 63%)" }
+          }
+          type="button"
+          onClick={() => setTogglePlan("yearly")}
+        >
           Yearly
         </button>
       </div>

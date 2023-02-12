@@ -44,7 +44,7 @@ body {
 .app-container {
   display: flex;
   flex-direction: row;
-  max-width: 950px;
+  max-width: 900px;
   height: 600px;
   border-radius: 10px;
   box-shadow: 5px 10px 18px #e9e9e9;
@@ -121,7 +121,7 @@ body {
 .form-container {
   display: flex;
   flex-direction: column;
-  max-width: calc(950px - 275px);
+  width: calc(900px - 275px);
   padding: 20px 70px;
 }
 
@@ -168,6 +168,10 @@ body {
   cursor: pointer;
 }
 
+.button-go-back:active {
+  opacity: 60%;
+}
+
 .button-go-back-off {
   visibility: hidden;
 }
@@ -185,6 +189,10 @@ body {
 .button-next:hover {
   opacity: 80%;
   cursor: pointer;
+}
+
+.button-next:active {
+  opacity: 60%;
 }
 
 /* ===================================================
@@ -242,11 +250,120 @@ body {
 ============ PLAN COMPONENT ====================
 ================================================ */
 
+.plan-container {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.radio-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.radio-input-container {
+  border: 1px solid var(--CoolGray);
+  border-radius: 10px;
+  height: 160px;
+  margin: 10px 0;
+  width: 140px;
+}
+
+.radio-input-container:hover {
+  background-color: var(--Magnolia);
+  border: double 1px transparent;
+  border-radius: 10px;
+  background-image: linear-gradient(var(--Magnolia), var(--Alabaster)),
+    linear-gradient(to right, var(--PurplishBlue), var(--MarineBlue));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.radio-input-container input {
+  position: absolute;
+  height: 160px;
+  width: 140px;
+  cursor: pointer;
+  z-index: 5;
+  opacity: 0;
+}
+
+.radio-input-container:focus-within {
+  background-color: var(--Magnolia);
+  border: double 1px transparent;
+  border-radius: 10px;
+  background-image: linear-gradient(var(--Magnolia), var(--Alabaster)),
+    linear-gradient(to right, var(--PurplishBlue), var(--MarineBlue));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.icon-text-container {
+  height: 100%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.text label {
+  color: var(--MarineBlue);
+  font-weight: bolder;
+}
+
+.text .price {
+  color: var(--CoolGray);
+}
+
+.text .discount {
+  color: var(--MarineBlue);
+  font-size: 14px;
+  letter-spacing: normal;
+}
+
+.toggle-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px 0;
+  padding: 0 150px;
+  height: 50px;
+  background-color: var(--Magnolia);
+  border-radius: 10px;
+}
+
+.monthly-btn {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  font-weight: bolder;
+  font-size: 14px;
+}
+
+.monthly-btn:hover {
+  color: var(--MarineBlue) !important;
+}
+
+.yearly-btn {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  font-weight: bolder;
+  font-size: 14px;
+}
+
+.yearly-btn:hover {
+  color: var(--MarineBlue) !important;
+}
+
 /* The switch - the box around the slider */
 .switch {
   position: relative;
   display: inline-block;
-  width: 35px;
+  width: 40px;
   height: 20px;
 }
 
@@ -265,7 +382,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: var(--MarineBlue);
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -273,27 +390,27 @@ body {
 .slider:before {
   position: absolute;
   content: "";
-  height: 15px;
-  width: 15px;
+  height: 14px;
+  width: 14px;
   left: 4px;
-  bottom: 2px;
+  bottom: 3px;
   background-color: white;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
 input:checked + .slider {
-  background-color: #2196f3;
+  background-color: var(--MarineBlue);
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
+  box-shadow: 0 0 1px var(--MarineBlue);
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(12px);
-  -ms-transform: translateX(12px);
-  transform: translateX(12px);
+  -webkit-transform: translateX(17px);
+  -ms-transform: translateX(17px);
+  transform: translateX(17px);
 }
 
 /* Rounded sliders */
