@@ -9,7 +9,14 @@ export default function CheckboxInput(props) {
         {({ field }) => {
           return options.map((option) => {
             return (
-              <div className="checkbox-input-container" key={option.key}>
+              <div
+                className={
+                  field.value.includes(option.value)
+                    ? "checkbox-input-container-checked"
+                    : "checkbox-input-container"
+                }
+                key={option.key}
+              >
                 <input
                   type="checkbox"
                   id={option.value}
@@ -17,11 +24,13 @@ export default function CheckboxInput(props) {
                   value={option.value}
                   checked={field.value.includes(option.value)}
                 />
-                <div>
-                  <label htmlFor={option.value}>{option.value}</label>
-                  <p>{option.description}</p>
+                <div className="label-text-container">
+                  <label htmlFor={option.value}>
+                    {option.value}
+                    <p>{option.description}</p>
+                  </label>
                 </div>
-                <span>
+                <span className="price-container">
                   +${togglePlan === "monthly" ? option.priceMo : option.priceYr}
                   {togglePlan === "monthly" ? "/mo" : "/yr"}
                 </span>
