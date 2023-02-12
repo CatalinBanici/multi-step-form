@@ -1,7 +1,8 @@
+import { Formik } from "formik";
 import React from "react";
 import FormikControl from "../formik/FormikControl";
 
-export default function PersonalInfo() {
+export default function PersonalInfo({ formik }) {
   return (
     <div className="personal-info-container">
       <FormikControl
@@ -10,6 +11,7 @@ export default function PersonalInfo() {
         name="name"
         label="Name"
         placeholder="e.g. Stephen King"
+        formik={formik}
       />
       <FormikControl
         control="email"
@@ -17,6 +19,7 @@ export default function PersonalInfo() {
         name="email"
         label="Email Adress"
         placeholder="e.g. stephenking@lorem.com"
+        formik={formik}
       />
 
       <FormikControl
@@ -25,6 +28,7 @@ export default function PersonalInfo() {
         name="phone"
         label="Phone Number"
         placeholder="e.g. +1 234 567 890"
+        formik={formik}
       />
     </div>
   );

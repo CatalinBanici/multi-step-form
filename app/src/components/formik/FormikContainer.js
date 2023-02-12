@@ -130,7 +130,7 @@ export default function FormikContainer() {
   function pageDisplay(formik) {
     switch (formStep) {
       case 0:
-        return <PersonalInfo />;
+        return <PersonalInfo formik={formik} />;
       case 1:
         return (
           <Plan
@@ -244,9 +244,15 @@ export default function FormikContainer() {
                 {(formik) => (
                   <Form className="form-body">
                     {pageDisplay(formik)}
+                    {console.log(formik)}
 
                     <div className="form-buttons">
                       <button
+                        className={
+                          formStep === 0
+                            ? "button-go-back-off"
+                            : "button-go-back"
+                        }
                         type="button"
                         disabled={formStep === 0 || formik.isSubmitting}
                         onClick={() => {
@@ -257,6 +263,7 @@ export default function FormikContainer() {
                       </button>
                       {formStep < 3 && (
                         <button
+                          className="button-next"
                           type="button"
                           onClick={() => {
                             handleNextStep(formik);
@@ -267,6 +274,7 @@ export default function FormikContainer() {
                       )}
                       {formStep === 3 && (
                         <button
+                          className="button-submit"
                           type="submit"
                           disabled={formik.isSubmitting}
                           onClick={() => {
