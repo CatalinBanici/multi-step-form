@@ -44,11 +44,12 @@ body {
 .app-container {
   display: flex;
   flex-direction: row;
-  width: 950px;
+  max-width: 950px;
   height: 600px;
   border-radius: 10px;
   box-shadow: 5px 10px 18px #e9e9e9;
   padding: 15px;
+  margin: 20px;
   background-color: var(--White);
 }
 
@@ -57,12 +58,13 @@ body {
 ==================================================== */
 
 .progress-container {
-  width: 30%;
+  width: 275px;
   display: flex;
   flex-direction: column;
   background-image: url(./assets/images/bg-sidebar-desktop.svg);
   background-repeat: no-repeat;
   background-size: initial;
+  border-radius: 10px;
   padding: 25px 15px;
   text-transform: uppercase;
   font-size: 13px;
@@ -119,7 +121,7 @@ body {
 .form-container {
   display: flex;
   flex-direction: column;
-  width: 70%;
+  max-width: calc(950px - 275px);
   padding: 20px 70px;
 }
 
@@ -181,7 +183,7 @@ body {
 }
 
 .button-next:hover {
-  background-color: var(--PastelBlue);
+  opacity: 80%;
   cursor: pointer;
 }
 
