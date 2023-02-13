@@ -683,3 +683,27 @@ input:checked + .slider:before {
   font-size: 18px;
   color: var(--PurplishBlue);
 }
+
+/* ==============================================
+=========== COMPLETE CONTAINER ===============
+============================================== */
+
+.complete-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: calc(900px - 275px);
+  height: 50%;
+  padding: 20px 60px;
+  align-self: center;
+}
+
+.complete-container h1 {
+  color: var(--MarineBlue);
+}
+
+.complete-container p {
+  text-align: center;
+  color: var(--CoolGray);
+}
