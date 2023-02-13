@@ -172,6 +172,11 @@ body {
   opacity: 60%;
 }
 
+.button-go-back:disabled {
+  color: var(--CoolGray);
+  opacity: none;
+}
+
 .button-go-back-off {
   visibility: hidden;
 }
@@ -184,6 +189,7 @@ body {
   background-color: var(--MarineBlue);
   font-weight: bolder;
   right: 0;
+  width: 126px;
 }
 
 .button-next:hover {
@@ -193,6 +199,53 @@ body {
 
 .button-next:active {
   opacity: 60%;
+}
+
+.button-submit {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  color: var(--White);
+  background-color: var(--PurplishBlue);
+  font-weight: bolder;
+  right: 0;
+  width: 126px;
+}
+
+.button-submit:disabled {
+  background-color: var(--CoolGray);
+  opacity: none;
+}
+
+.button-submit:hover {
+  opacity: 80%;
+  cursor: pointer;
+}
+
+.button-submit:active {
+  opacity: 60%;
+}
+
+.loading-spinner-button {
+  animation-name: spin;
+  animation-duration: 500ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error-message {
+  color: var(--StrawberryRed);
+  font-weight: bolder;
+  font-size: 13px;
 }
 
 /* ===================================================
@@ -241,11 +294,6 @@ body {
   background-clip: padding-box, border-box;
 }
 
-.error-message {
-  color: var(--StrawberryRed);
-  font-weight: bolder;
-}
-
 /* ================================================
 ============ PLAN COMPONENT ====================
 ================================================ */
@@ -260,7 +308,6 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 10px;
 }
 
 .radio-input-container {
@@ -534,4 +581,105 @@ input:checked + .slider:before {
   right: 0;
   color: var(--PurplishBlue);
   font-size: 14px;
+}
+
+/* ==============================================
+======== LAST STEP COMPONENT =================
+============================================== */
+
+.last-step-container {
+  margin: 15px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.chosen-plan-addon-body {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--Magnolia);
+  padding: 0 15px;
+  border-radius: 10px;
+}
+
+.chosen-plan-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 15px 0;
+  height: 45px;
+}
+
+.chosen-plan-container h3 {
+  font-size: 16px;
+  color: var(--MarineBlue);
+  font-weight: bolder;
+  align-self: center;
+}
+
+.chosen-plan {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.chosen-plan h3 {
+  font-size: 14px;
+  color: var(--MarineBlue);
+}
+
+.chosen-plan button {
+  border: none;
+  color: var(--CoolGray);
+  text-decoration: underline;
+  background-color: transparent;
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+.chosen-plan button:hover {
+  color: var(--PurplishBlue);
+}
+
+.chosen-addons-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.chosen-addon {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.chosen-addon h4 {
+  font-size: 14px;
+  font-weight: normal;
+  color: var(--MarineBlue);
+}
+
+.chosen-addon p {
+  font-size: 14px;
+  color: var(--CoolGray);
+}
+
+.total-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 30px 15px;
+}
+
+.total-container p {
+  font-size: 14px;
+  color: var(--CoolGray);
+}
+
+.total-container h2 {
+  font-size: 18px;
+  color: var(--PurplishBlue);
 }

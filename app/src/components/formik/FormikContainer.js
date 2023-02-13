@@ -8,6 +8,7 @@ import LastStep from "../pages/LastStep";
 import Complete from "../pages/Complete";
 import Progress from "../Progress";
 import { Route, Routes, useNavigate } from "react-router-dom";
+import { ReactComponent as Loader } from "../../assets/images/icon-loading.svg";
 
 export default function FormikContainer() {
   const [formStep, setFormStep] = useState(0);
@@ -281,7 +282,11 @@ export default function FormikContainer() {
                             onSubmit();
                           }}
                         >
-                          {formik.isSubmitting ? "Processing" : "Confirm"}
+                          {formik.isSubmitting ? (
+                            <Loader className="loading-spinner-button" />
+                          ) : (
+                            "Confirm"
+                          )}
                         </button>
                       )}
                     </div>
