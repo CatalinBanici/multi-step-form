@@ -245,7 +245,6 @@ export default function FormikContainer() {
                 {(formik) => (
                   <Form className="form-body">
                     {pageDisplay(formik)}
-                    {console.log(formik)}
 
                     <div className="form-buttons">
                       <button

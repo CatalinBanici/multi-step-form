@@ -53,6 +53,13 @@ body {
   background-color: var(--White);
 }
 
+@media screen and (max-width: 1000px) {
+  .app-container {
+    flex-direction: column;
+    height: 700px;
+  }
+}
+
 /* ====================================================
 =============== PROGRESS COMPONENT =================
 ==================================================== */
@@ -98,6 +105,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: 0.5s;
 }
 
 .step-text {
@@ -112,6 +120,31 @@ body {
 .step-text h4 {
   padding: 2px;
   color: var(--White);
+}
+
+@media screen and (max-width: 1000px) {
+  .progress-container {
+    width: 100%;
+    height: 185px;
+    background-image: url(./assets/images/bg-sidebar-desktop-2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-direction: row;
+  }
+
+  .step-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+  }
+
+  .step-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
 }
 
 /* ======================================================
@@ -161,6 +194,7 @@ body {
   color: var(--CoolGray);
   background-color: transparent;
   font-weight: bolder;
+  transition: 0.5s;
 }
 
 .button-go-back:hover {
@@ -190,6 +224,7 @@ body {
   font-weight: bolder;
   right: 0;
   width: 126px;
+  transition: 0.5s;
 }
 
 .button-next:hover {
@@ -210,6 +245,7 @@ body {
   font-weight: bolder;
   right: 0;
   width: 126px;
+  transition: 0.5s;
 }
 
 .button-submit:disabled {
@@ -246,6 +282,12 @@ body {
   color: var(--StrawberryRed);
   font-weight: bolder;
   font-size: 13px;
+}
+
+@media screen and (max-width: 1000px) {
+  .form-body {
+    height: 365px;
+  }
 }
 
 /* ===================================================
@@ -322,7 +364,7 @@ body {
   background-color: var(--Magnolia);
   border: double 1px transparent;
   border-radius: 10px;
-  background-image: linear-gradient(var(--Magnolia), var(--Alabaster)),
+  background-image: linear-gradient(var(--White), var(--White)),
     linear-gradient(to right, var(--PurplishBlue), var(--MarineBlue));
   background-origin: border-box;
   background-clip: padding-box, border-box;
@@ -400,6 +442,7 @@ body {
   cursor: pointer;
   font-weight: bolder;
   font-size: 14px;
+  transition: 0.5s;
 }
 
 .monthly-btn:hover {
@@ -412,6 +455,7 @@ body {
   cursor: pointer;
   font-weight: bolder;
   font-size: 14px;
+  transition: 0.5s;
 }
 
 .yearly-btn:hover {
@@ -512,7 +556,7 @@ input:checked + .slider:before {
   background-color: var(--Magnolia);
   border: double 1px transparent;
   border-radius: 10px;
-  background-image: linear-gradient(var(--Magnolia), var(--Alabaster)),
+  background-image: linear-gradient(var(--White), var(--White)),
     linear-gradient(to right, var(--PurplishBlue), var(--MarineBlue));
   background-origin: border-box;
   background-clip: padding-box, border-box;
@@ -636,6 +680,7 @@ input:checked + .slider:before {
   background-color: transparent;
   cursor: pointer;
   font-weight: bolder;
+  transition: 0.5s;
 }
 
 .chosen-plan button:hover {
@@ -706,4 +751,11 @@ input:checked + .slider:before {
 .complete-container p {
   text-align: center;
   color: var(--CoolGray);
+}
+
+@media screen and (max-width: 1000px) {
+  .complete-container {
+    height: 485px;
+    padding: 90px 60px 150px 60px;
+  }
 }
