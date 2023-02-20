@@ -74,6 +74,7 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
+    background-color: var(--Magnolia);
   }
 }
 
@@ -346,7 +347,7 @@ body {
 @media screen and (max-width: 470px) {
   .form-container {
     width: 350px;
-    height: 600px;
+    height: 580px;
     position: absolute;
     top: 100px;
     background-color: var(--White);

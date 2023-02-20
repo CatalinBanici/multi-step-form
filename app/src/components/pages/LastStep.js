@@ -30,21 +30,25 @@ export default function LastStep(props) {
 
   let displayAddons = [
     ...formik.values.addOnOptions.map((addon) => {
-      if (addon === "Online Service")
-        return {
-          displayValue: "Online service",
-          displayPrice: togglePlan === "monthly" ? 1 : 10,
-        };
-      if (addon === "Larger Storage")
-        return {
-          displayValue: "Larger storage",
-          displayPrice: togglePlan === "monthly" ? 2 : 20,
-        };
-      if (addon === "Customizable Profile")
-        return {
-          displayValue: "Customizable profile",
-          displayPrice: togglePlan === "monthly" ? 2 : 20,
-        };
+      switch (addon) {
+        case "Online Service":
+          return {
+            displayValue: "Online service",
+            displayPrice: togglePlan === "monthly" ? 1 : 10,
+          };
+        case "Larger Storage":
+          return {
+            displayValue: "Larger storage",
+            displayPrice: togglePlan === "monthly" ? 2 : 20,
+          };
+        case "Customizable Profile":
+          return {
+            displayValue: "Customizable profile",
+            displayPrice: togglePlan === "monthly" ? 2 : 20,
+          };
+        default:
+          return null;
+      }
     }),
   ];
 

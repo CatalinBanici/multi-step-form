@@ -16,6 +16,8 @@ export default function FormikContainer() {
 
   const navigate = useNavigate();
 
+  // FORM DATA
+
   const formTitles = [
     "Personal info",
     "Select your plan",
@@ -128,6 +130,8 @@ export default function FormikContainer() {
     },
   ];
 
+  // FORM FUNCTIONALITIES
+
   function pageDisplay(formik) {
     switch (formStep) {
       case 0:
@@ -148,9 +152,6 @@ export default function FormikContainer() {
           <LastStep
             formik={formik}
             togglePlan={togglePlan}
-            planOptionsMo={planOptionsMo}
-            planOptionsYr={planOptionsYr}
-            extraOptions={extraOptions}
             setFormStep={setFormStep}
           />
         );
@@ -190,6 +191,8 @@ export default function FormikContainer() {
       setFormStep(4);
     }
   }
+
+  // FORMIK DATA
 
   const initialValues = {
     name: "",
