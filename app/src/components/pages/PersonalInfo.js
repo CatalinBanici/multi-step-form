@@ -16,7 +16,7 @@ export default function PersonalInfo({ formik }) {
         control="email"
         type="email"
         name="email"
-        label="Email Adress"
+        label="Email Address"
         placeholder="e.g. stephenking@lorem.com"
         formik={formik}
       />

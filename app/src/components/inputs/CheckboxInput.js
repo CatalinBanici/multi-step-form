@@ -26,14 +26,21 @@ export default function CheckboxInput(props) {
                 />
                 <div className="label-text-container">
                   <label htmlFor={option.value}>
-                    {option.value}
-                    <p>{option.description}</p>
+                    <div>
+                      {option.value}
+                      <p>{option.description}</p>
+                    </div>
+                    <div className="price-container">
+                      <span>
+                        +$
+                        {togglePlan === "monthly"
+                          ? option.priceMo
+                          : option.priceYr}
+                        {togglePlan === "monthly" ? "/mo" : "/yr"}
+                      </span>
+                    </div>
                   </label>
                 </div>
-                <span className="price-container">
-                  +${togglePlan === "monthly" ? option.priceMo : option.priceYr}
-                  {togglePlan === "monthly" ? "/mo" : "/yr"}
-                </span>
               </div>
             );
           });
